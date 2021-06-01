@@ -9,8 +9,8 @@ cargo run
 
 Docker
 ```
-docker build -t rust/rust_service:1.0 .
-docker run -p 8080:8080 rust/run_service:1.0
+docker build -t rust_service .
+docker run -t -p 8080:8080 --name rust_servie -it rust_service
 ```
 
 https://www.rust-lang.org
