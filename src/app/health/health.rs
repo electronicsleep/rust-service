@@ -7,6 +7,7 @@ pub struct HealthResponse {
 
 impl HealthResponse {
     fn get() -> Self {
+        println!("INFO: health endpoint");
         HealthResponse {
             status: "Up".to_owned()
         }

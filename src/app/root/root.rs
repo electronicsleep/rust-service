@@ -7,6 +7,7 @@ pub struct RootResponse {
 
 impl RootResponse {
     fn get() -> Self {
+        println!("INFO: root endpoint");
         RootResponse {
             message: "Hello Rust!".to_owned()
         }
