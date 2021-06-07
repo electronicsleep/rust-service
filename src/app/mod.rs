@@ -2,6 +2,7 @@ use actix_web::{HttpServer, App, web};
 
 mod root;
 mod health;
+mod events;
 
 pub fn start() {
     let bind_address = "0.0.0.0:8080";
@@ -18,6 +19,7 @@ pub fn start() {
 fn routes(app: &mut web::ServiceConfig) {
     app
         .route("/", web::get().to(root::get))
+        .route("/events", web::get().to(events::get))
         .route("/health", web::get().to(health::get));
 }
 
