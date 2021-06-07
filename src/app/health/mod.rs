@@ -1,4 +1,4 @@
-use actix_web::{HttpRequest, Responder, HttpResponse};
+use actix_web::{HttpRequest, HttpResponse, Responder};
 
 mod health;
 

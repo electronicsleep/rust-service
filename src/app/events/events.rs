@@ -1,7 +1,7 @@
-use mysql::*;
-use std::env;
 use mysql::prelude::*;
+use mysql::*;
 use serde::Serialize;
+use std::env;
 
 #[derive(Serialize)]
 pub struct EventsResponse {
@@ -15,7 +15,8 @@ impl EventsResponse {
         println!("INFO: events endpoint");
 
         //Example: mysql://testdb:password@localhost:3306/testdb";
-        let datasource_conn_string = env::var("datasource_conn_string").unwrap_or("none".to_string());
+        let datasource_conn_string =
+            env::var("datasource_conn_string").unwrap_or("none".to_string());
         println!("INFO: datasource_conn_string: {}", datasource_conn_string);
 
         #[derive(Debug, PartialEq, Eq)]
@@ -36,11 +37,17 @@ impl EventsResponse {
         let mut conn = pool.get_conn().unwrap();
 
         let selected_events = conn
-            .query_map("SELECT event_id, service, event, event_type, datetime from events",
-            |(event_id, service, event, event_type, datetime)| {
-                Events { event_id, service, event, event_type, datetime }
-            },
-        ).unwrap();
+            .query_map(
+                "SELECT event_id, service, event, event_type, datetime from events",
+                |(event_id, service, event, event_type, datetime)| Events {
+                    event_id,
+                    service,
+                    event,
+                    event_type,
+                    datetime,
+                },
+            )
+            .unwrap();
 
         println!("INFO: events endpoint, selected_events");
         println!("INFO: {:?}", selected_events);
@@ -50,7 +57,7 @@ impl EventsResponse {
         EventsResponse {
             service: events.service.as_ref().unwrap().to_string(),
             event: events.event.as_ref().unwrap().to_string(),
-            event_type: events.event_type.as_ref().unwrap().to_string()
+            event_type: events.event_type.as_ref().unwrap().to_string(),
         }
     }
 }

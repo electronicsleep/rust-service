@@ -9,7 +9,7 @@ impl RootResponse {
     fn get() -> Self {
         println!("INFO: root endpoint");
         RootResponse {
-            message: "Hello Rust!".to_owned()
+            message: "Hello Rust!".to_owned(),
         }
     }
 }

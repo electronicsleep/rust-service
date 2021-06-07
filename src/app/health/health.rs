@@ -9,7 +9,7 @@ impl HealthResponse {
     fn get() -> Self {
         println!("INFO: health endpoint");
         HealthResponse {
-            status: "Up".to_owned()
+            status: "Up".to_owned(),
         }
     }
 }
