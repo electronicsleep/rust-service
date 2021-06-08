@@ -17,7 +17,7 @@ impl EventsResponse {
         //Example: mysql://testdb:password@localhost:3306/testdb";
         let datasource_conn_string =
             env::var("datasource_conn_string").unwrap_or("none".to_string());
-        println!("INFO: datasource_conn_string: {}", datasource_conn_string);
+        //println!("DEBUG: datasource_conn_string: {}", datasource_conn_string);
 
         #[derive(Debug, PartialEq, Eq)]
         struct Events {
@@ -27,8 +27,6 @@ impl EventsResponse {
             event_type: Option<String>,
             datetime: Option<String>,
         }
-
-        println!("DEBUG: connection string: {}", datasource_conn_string);
 
         let pool = Pool::new(datasource_conn_string).unwrap();
 
