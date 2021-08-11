@@ -14,7 +14,6 @@ impl EventsResponse {
     fn get() -> Self {
         println!("INFO: events endpoint");
 
-        //Example: mysql://testdb:password@localhost:3306/testdb";
         let datasource_conn_string =
             env::var("datasource_conn_string").unwrap_or("none".to_string());
         //println!("DEBUG: datasource_conn_string: {}", datasource_conn_string);
