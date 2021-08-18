@@ -4,15 +4,10 @@ Example microservice in Rust and Actix
 
 Run
 ```
-cargo run
+bash start.sh
 ```
 
-Docker
-```
-docker build -t rust_service .
-docker run -t -p 8080:8080 --name rust_servie -it rust_service
-```
-
+MySQL
 ```
 export datasource_conn_string=mysql://infradb:password@localhost:3306/infradb
 ```

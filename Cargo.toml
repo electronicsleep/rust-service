@@ -9,7 +9,7 @@ actix = "0.10.0-alpha.2"
 actix-web = "2.0"
 # actix-rt = "1"
 serde = "1.0.106"
-mysql = "*"
+mysql = "21.0.1"
 
 [profile.dev]
 opt-level = 0

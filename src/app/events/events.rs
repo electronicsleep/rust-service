@@ -18,6 +18,9 @@ impl EventsResponse {
             env::var("datasource_conn_string").unwrap_or("none".to_string());
         //println!("DEBUG: datasource_conn_string: {}", datasource_conn_string);
 
+        let opts = Opts::from_url(&datasource_conn_string).unwrap();
+        let pool = Pool::new(opts).unwrap();
+
         #[derive(Debug, PartialEq, Eq)]
         struct Events {
             event_id: i32,
@@ -27,7 +30,7 @@ impl EventsResponse {
             datetime: Option<String>,
         }
 
-        let pool = Pool::new(datasource_conn_string).unwrap();
+        //let pool = Pool::new(datasource_conn_string).unwrap();
 
         println!("INFO: events endpoint get conn");
 
