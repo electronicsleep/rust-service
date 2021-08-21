@@ -1,13 +1,11 @@
 [package]
 name = "rust_service"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Chris <https://github.com/electronicsleep>"]
 edition = "2018"
 
 [dependencies]
-actix = "0.10.0-alpha.2"
-actix-web = "2.0"
-# actix-rt = "1"
+actix-web = "3.3.2"
 serde = "1.0.106"
 mysql = "21.0.1"
 

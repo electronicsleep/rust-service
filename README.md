@@ -1,6 +1,6 @@
 # Rust Service
 
-Example microservice in Rust and Actix
+Example microservice in Rust and Actix v3
 
 Run
 ```

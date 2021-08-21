@@ -1,7 +1,8 @@
-use actix_web::{HttpRequest, HttpResponse, Responder};
+use actix_web::{HttpResponse, Responder};
 
-mod events;
+pub mod events;
 
-pub async fn get(_req: HttpRequest) -> impl Responder {
-    HttpResponse::Ok().json(events::get())
+pub fn get_events() -> impl Responder {
+    //println!("DEBUG get_events");
+    HttpResponse::Ok().json(events::get_events())
 }

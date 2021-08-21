@@ -11,8 +11,8 @@ pub struct EventsResponse {
 }
 
 impl EventsResponse {
-    fn get() -> Self {
-        println!("INFO: events endpoint");
+    fn get_events() -> Self {
+        println!("INFO: get_events");
 
         let datasource_conn_string =
             env::var("datasource_conn_string").unwrap_or("none".to_string());
@@ -49,10 +49,9 @@ impl EventsResponse {
             )
             .unwrap();
 
+        // Return all events
         println!("INFO: events endpoint, selected_events");
         println!("INFO: {:?}", selected_events);
-        let events = selected_events.get(0).unwrap();
-        println!("INFO: {:?}", events);
 
         EventsResponse {
             service: events.service.as_ref().unwrap().to_string(),
@@ -62,6 +61,6 @@ impl EventsResponse {
     }
 }
 
-pub fn get() -> EventsResponse {
-    EventsResponse::get()
+pub fn get_events() -> EventsResponse {
+    EventsResponse::get_events()
 }
