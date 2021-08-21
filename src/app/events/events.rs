@@ -53,6 +53,9 @@ impl EventsResponse {
         println!("INFO: events endpoint, selected_events");
         println!("INFO: {:?}", selected_events);
 
+        let events = selected_events.get(0).unwrap();
+        println!("INFO: {:?}", events);
+
         EventsResponse {
             service: events.service.as_ref().unwrap().to_string(),
             event: events.event.as_ref().unwrap().to_string(),
