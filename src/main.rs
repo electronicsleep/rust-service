@@ -19,13 +19,6 @@ async fn health() -> impl Responder {
         .body(status)
 }
 
-#[get("/echo")]
-async fn echo(req_body: String) -> impl Responder {
-    println!("INFO: Endpoint: /echo");
-    println!("DEBUG: req_body {}", req_body);
-    HttpResponse::Ok().body(req_body)
-}
-
 #[get("/events")]
 async fn events(req_body: String) -> impl Responder {
     println!("INFO: Endpoint: /events");
@@ -58,7 +51,6 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .service(index)
             .service(health)
-            .service(echo)
             .service(events)
             .service(add_event)
     })
