@@ -30,8 +30,6 @@ impl EventsResponse {
             datetime: Option<String>,
         }
 
-        //let pool = Pool::new(datasource_conn_string).unwrap();
-
         println!("INFO: events endpoint get conn");
 
         let mut conn = pool.get_conn().unwrap();

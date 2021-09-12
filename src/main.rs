@@ -43,12 +43,10 @@ struct Event {
 
 #[post("/add")]
 async fn add_event(event: web::Json<Event>) -> impl Responder {
-    //TODO: pass json to post_event
     let service = event.service.to_string();
-    let event = event.event.to_string();
-    //let event_type = event.event_type.to_string();
-    let event_type = "deploy-prod".to_string();
-    app::add_event::post_event(service, event, event_type);
+    let event_name = event.event.to_string();
+    let event_type = event.event_type.to_string();
+    app::add_event::post_event(service, event_name, event_type);
     HttpResponse::Ok().body("ok")
 }
 
