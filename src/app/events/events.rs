@@ -49,7 +49,7 @@ impl EventsResponse {
             )
             .unwrap();
 
-        // Return all events
+        // Print all events
         println!("INFO: events endpoint, selected_events");
         println!("INFO: {:?}", selected_events);
 

@@ -34,11 +34,10 @@ impl EventsResponse {
 
         let mut conn = pool.get_conn().unwrap();
 
-        println!("{:?}", chrono::offset::Utc::now());
+        println!("INFO: Time Now {:?}", chrono::offset::Utc::now());
         let now = chrono::Utc::now();
         println!("{}", now.format("%Y-%m-%d %H:%M:%S").to_string());
         let datetime = now.format("%Y-%m-%d %H:%M:%S").to_string();
-        //let datetime = "2020-04-13 00:00:01";
 
         let query_start = "INSERT INTO events (service, event, event_type, datetime) VALUES(";
         let query = format!(

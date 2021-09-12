@@ -58,10 +58,10 @@ async fn main() -> std::io::Result<()> {
     println!("Server: http://{}", &bind_address);
     HttpServer::new(|| {
         App::new()
-            .service(health)
             .service(index)
-            .service(events)
+            .service(health)
             .service(echo)
+            .service(events)
             .service(add_event)
     })
     .bind(bind_address)?
