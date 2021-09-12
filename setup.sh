@@ -2,6 +2,8 @@ Ensure you are using cargo 1.55.0
 
 cargo --version
 
-If not update rust www.rust-lang.org
+If not update Rust 
 
-apt-get instsall libssl-dev
+www.rust-lang.org
+
+apt-get install libssl-dev
