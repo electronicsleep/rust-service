@@ -1,20 +1,26 @@
 # Rust Service
 
-Example microservice in Rust and Actix V3
+Example microservice in Rust and Actix V4
 
-Run
+##### Run
 ```
 bash start.sh
 ```
 
-Tests
+##### Run Database
 ```
-bash src/tests/test-post.sh
+git checkout https://github.com/electronicsleep/mysql-docker-test.git && mysql-docker-test
+bash run
 ```
 
-MySQL
+##### MySQL connection string
 ```
 export datasource_conn_string=mysql://infradb:password@localhost:3306/infradb
+```
+
+#### Tests
+```
+bash src/tests/test-post.sh
 ```
 
 https://www.rust-lang.org
