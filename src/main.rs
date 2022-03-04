@@ -36,16 +36,16 @@ async fn health() -> impl Responder {
 
 #[get("/item/{name}")]
 /// Item accepts a string for item
-async fn item(path: web::Path<(String,)>) -> impl Responder {
+async fn item(path: web::Path<String>) -> impl Responder {
     println!("INFO: Endpoint: /item");
-    HttpResponse::Ok().body(format!("Item: {}", path.into_inner().0))
+    HttpResponse::Ok().body(format!("Item: {}", path.into_inner()))
 }
 
 #[get("/itemid/{id}")]
 /// ItemId accepts a u32
-async fn itemid(path: web::Path<(u32,)>) -> impl Responder {
+async fn itemid(path: web::Path<u32>) -> impl Responder {
     println!("INFO: Endpoint: /itemid");
-    HttpResponse::Ok().body(format!("ItemId: {}", path.into_inner().0))
+    HttpResponse::Ok().body(format!("ItemId: {}", path.into_inner()))
 }
 
 #[post("/echo")]
@@ -72,6 +72,7 @@ struct Event {
 #[post("/add")]
 /// Add an event to the database
 async fn add_event(event: web::Json<Event>) -> impl Responder {
+    println!("INFO: Endpoint: /add");
     let service = event.service.to_string();
     let event_name = event.event.to_string();
     let event_type = event.event_type.to_string();
