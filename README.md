@@ -9,7 +9,7 @@ bash start.sh
 
 ##### Run Database
 ```
-git checkout https://github.com/electronicsleep/mysql-docker-test.git && mysql-docker-test
+git clone https://github.com/electronicsleep/mysql-docker-test.git && cd mysql-docker-test
 bash run
 ```
 
