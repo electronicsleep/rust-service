@@ -36,7 +36,7 @@ impl EventsResponse {
 
         let selected_events = conn
             .query_map(
-                "SELECT event_id, service, event, event_type, datetime from events",
+                "SELECT event_id, service, event, event_type, datetime FROM events",
                 |(event_id, service, event, event_type, datetime)| Events {
                     event_id,
                     service,
