@@ -1,7 +1,8 @@
 use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
 use serde::Deserialize;
 
-mod app;
+mod add_event;
+mod get_events;
 
 #[get("/")]
 async fn index() -> HttpResponse {
@@ -26,6 +27,7 @@ async fn about() -> impl Responder {
 }
 
 #[get("/health")]
+/// Health check
 async fn health() -> impl Responder {
     println!("INFO: Endpoint: /health");
     let status = "{\"status\": \"Up\"}";
@@ -49,17 +51,21 @@ async fn itemid(path: web::Path<u32>) -> impl Responder {
 }
 
 #[post("/echo")]
-/// Will echo json body request
+/// Will echo json body request sent
 async fn echo(req_body: String) -> impl Responder {
     HttpResponse::Ok().body(req_body)
 }
 
 #[get("/events")]
 /// Returns a list of events added to database
-async fn events() -> impl Responder {
+async fn svc_get_events() -> impl Responder {
     println!("INFO: Endpoint: /events");
-    app::events::get_events();
-    HttpResponse::Ok().body("events")
+    let events = get_events::get_events();
+    println!("RETURN: {:?}", events);
+    HttpResponse::Ok().body(format!(
+        "Event: {} {} {} {}",
+        events.event, events.event_type, events.service, events.datetime
+    ))
 }
 
 #[derive(Deserialize)]
@@ -71,13 +77,15 @@ struct Event {
 
 #[post("/add")]
 /// Add an event to the database
-async fn add_event(event: web::Json<Event>) -> impl Responder {
+async fn svc_add_event(event: web::Json<Event>) -> impl Responder {
     println!("INFO: Endpoint: /add");
     let service = event.service.to_string();
     let event_name = event.event.to_string();
     let event_type = event.event_type.to_string();
-    app::add_event::post_event(service, event_name, event_type);
-    HttpResponse::Ok().body("add_event")
+    let response = add_event::add_event(service, event_name, event_type);
+
+    //app::add_event::post_event(service, event_name, event_type);
+    HttpResponse::Ok().body(format!("Event: {} ", response))
 }
 
 #[actix_web::main]
@@ -94,8 +102,8 @@ async fn main() -> std::io::Result<()> {
             .service(itemid)
             .service(echo)
             .service(health)
-            .service(events)
-            .service(add_event)
+            .service(svc_get_events)
+            .service(svc_add_event)
     })
     .bind(bind_address)?
     .run()
