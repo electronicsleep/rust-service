@@ -61,11 +61,10 @@ async fn echo(req_body: String) -> impl Responder {
 async fn svc_get_events() -> impl Responder {
     println!("INFO: Endpoint: /events");
     let events = get_events::get_events();
-    println!("RETURN: {:?}", events);
-    HttpResponse::Ok().body(format!(
-        "Event: {} {} {} {}",
-        events.event, events.event_type, events.service, events.datetime
-    ))
+    let events_list = serde_json::to_string(&events).unwrap();
+    HttpResponse::Ok()
+        .content_type("application/json")
+        .body(events_list)
 }
 
 #[derive(Deserialize)]

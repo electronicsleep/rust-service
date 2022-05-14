@@ -4,7 +4,7 @@ use mysql::*;
 use std::env;
 
 pub fn add_event(service: String, event: String, event_type: String) -> String {
-    println!("INFO: post_event fn");
+    println!("INFO: add_event");
 
     let datasource_conn_string = env::var("datasource_conn_string").unwrap_or("none".to_string());
     //println!("DEBUG: datasource_conn_string: {}", datasource_conn_string);
@@ -20,7 +20,7 @@ pub fn add_event(service: String, event: String, event_type: String) -> String {
         datetime: Option<String>,
     }
 
-    println!("INFO: post_event endpoint get conn");
+    println!("INFO: add_event endpoint get conn");
 
     let mut conn = pool.get_conn().unwrap();
 
@@ -38,8 +38,6 @@ pub fn add_event(service: String, event: String, event_type: String) -> String {
                 },
     );
 
-    println!("INFO: add_event endpoint");
-    println!("INFO: {:?}", id);
-
+    println!("INFO: id {:?}", id);
     return "add_event ok".to_string();
 }
