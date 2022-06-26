@@ -90,7 +90,8 @@ async fn svc_add_event(event: web::Json<Event>) -> impl Responder {
 #[actix_web::main]
 /// Start Server
 async fn main() -> std::io::Result<()> {
-    let bind_address = "0.0.0.0:8080";
+    //let bind_address = "0.0.0.0:8080";
+    let bind_address = "localhost:8080";
     println!("Server: http://{}", &bind_address);
     HttpServer::new(|| {
         App::new()
