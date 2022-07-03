@@ -9,8 +9,8 @@ bash run.sh
 
 ##### Run Database
 ```
-git clone https://github.com/electronicsleep/mysql-docker-test.git && cd mysql-docker-test
-bash run.sh
+git clone https://github.com/electronicsleep/mysql-docker-test.git && \
+cd mysql-docker-test && ./run.sh
 ```
 
 ##### MySQL connection string
@@ -28,3 +28,7 @@ https://www.rust-lang.org
 https://actix.rs
 
 https://docs.rs/mysql/21.0.1/mysql/
+
+https://crates.io/crates/r2d2_mysql
+
+https://crates.io/crates/r2d2
