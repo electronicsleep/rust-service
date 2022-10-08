@@ -20,7 +20,7 @@ export datasource_conn_string=mysql://infradb:password@localhost:3306/infradb
 
 #### Tests
 ```
-bash src/tests/test-post.sh
+bash src/test/curl-tests.sh
 ```
 
 https://www.rust-lang.org
