@@ -25,11 +25,10 @@ pub fn add_event(service: String, event: String, event_type: String) -> String {
     let mut conn = pool.get_conn().unwrap();
 
     let now = chrono::Utc::now();
-    //println!("DEBUG: {}", now.format("%Y-%m-%d %H:%M:%S").to_string());
     let datetime = now.format("%Y-%m-%d %H:%M:%S").to_string();
 
     let id = conn.exec_drop(
-        "INSERT INTO events (service, event, event_type, datetime) VALUES (:service, :event, :event_type, :datetime)",
+        "INSERT INTO events (event_id, service, event, event_type, datetime) VALUES (UUID(), :service, :event, :event_type, :datetime)",
         params! {
                 "service" => service,
                 "event" => event,

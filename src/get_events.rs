@@ -5,7 +5,7 @@ use std::env;
 
 #[derive(Serialize, Debug, PartialEq, Eq)]
 pub struct Events {
-    event_id: i32,
+    event_id: Option<String>,
     service: Option<String>,
     event: Option<String>,
     event_type: Option<String>,
