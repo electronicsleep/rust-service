@@ -72,6 +72,7 @@ struct Event {
     service: String,
     event: String,
     event_type: String,
+    datetime: Option<String>,
 }
 
 #[post("/add")]
@@ -81,9 +82,12 @@ async fn svc_add_event(event: web::Json<Event>) -> impl Responder {
     let service = event.service.to_string();
     let event_name = event.event.to_string();
     let event_type = event.event_type.to_string();
-    let response = add_event::add_event(service, event_name, event_type);
-
-    //app::add_event::post_event(service, event_name, event_type);
+    let datetime = event
+        .datetime
+        .as_ref()
+        .unwrap_or(&"".to_owned())
+        .to_string();
+    let response = add_event::add_event(service, event_name, event_type, datetime);
     HttpResponse::Ok().body(format!("Event: {} ", response))
 }
 

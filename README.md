@@ -2,6 +2,8 @@
 
 Example microservice in Rust and Actix V4
 
+https://crates.io/crates/actix-web
+
 ##### Cargo build and run
 ```
 bash run.sh
