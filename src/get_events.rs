@@ -25,7 +25,7 @@ pub fn get_events() -> Vec<Events> {
 
     let selected_events = conn
         .query_map(
-            "SELECT event_id, service, event, event_type, datetime FROM events ORDER BY event_id desc LIMIT 10",
+            "SELECT event_id, service, event, event_type, datetime FROM events ORDER BY datetime desc LIMIT 10",
             |(event_id, service, event, event_type, datetime)| Events {
                 event_id,
                 service,
