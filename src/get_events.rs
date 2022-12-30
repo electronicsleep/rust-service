@@ -13,7 +13,7 @@ pub struct Events {
 }
 
 pub fn get_events() -> Vec<Events> {
-    println!("INFO: get_events");
+    println!("INFO: fn get_events");
 
     let datasource_conn_string = env::var("datasource_conn_string").unwrap_or("none".to_string());
     //println!("DEBUG: datasource_conn_string: {}", datasource_conn_string);

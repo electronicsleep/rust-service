@@ -7,6 +7,8 @@ curl --fail -I -X GET http://0.0.0.0:8080/health
 echo "-"
 curl --fail -I -X GET http://0.0.0.0:8080/events
 echo "-"
+curl --fail -I -X GET http://0.0.0.0:8080/event/infrasvc
+echo "-"
 curl --fail -X GET http://0.0.0.0:8080/home
 echo "-"
 curl --fail -X GET http://0.0.0.0:8080/about
