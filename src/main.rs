@@ -107,7 +107,7 @@ async fn svc_get_event(path: web::Path<String>, data: web::Data<AppState>) -> im
     let qr: QueryResult = conn
         .prep_exec(
             "SELECT event_id, service, event, event_type FROM events WHERE service = ?",
-            ("infrasvc",),
+            (name,),
         )
         .unwrap();
 
