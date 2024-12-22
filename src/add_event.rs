@@ -20,14 +20,6 @@ pub fn add_event(
     let opts = Opts::from_url(&datasource_conn_string).unwrap();
     let pool = Pool::new(opts).unwrap();
 
-    #[derive(Debug, PartialEq, Eq)]
-    struct Event {
-        service: Option<String>,
-        event: Option<String>,
-        event_type: Option<String>,
-        datetime: Option<String>,
-    }
-
     //println!("INFO: add_event endpoint get conn");
 
     let mut conn = pool.get_conn().unwrap();

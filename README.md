@@ -2,20 +2,22 @@
 
 Example microservice in Rust and Actix V4
 
+https://actix.rs/
+
 https://crates.io/crates/actix-web
 
-##### Cargo build and run
+#### Cargo build and run
 ```
 bash run.sh
 ```
 
-##### Run Database
+#### Run Database
 ```
 git clone https://github.com/electronicsleep/mysql-docker-test.git && \
 cd mysql-docker-test && ./run.sh
 ```
 
-##### MySQL connection string
+#### MySQL connection string
 ```
 export datasource_conn_string=mysql://infradb:password@localhost:3306/infradb
 ```
