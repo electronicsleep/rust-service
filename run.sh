@@ -1,9 +1,11 @@
 #!/bin/bash
 set -e
-export datasource_db=infradb
-export datasource_user=infradb
-export datasource_password=password
-export datasource_conn_string=mysql://$datasource_user:$datasource_password@localhost:3306/$datasource_db
+
+export MYSQL_USER=infradb
+export MYSQL_PASSWORD=password
+export MYSQL_HOST=localhost
+export MYSQL_PORT=3306
+export MYSQL_DBNAME=infradb
 
 cargo fmt
 cargo build --release
