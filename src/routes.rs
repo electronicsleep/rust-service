@@ -38,14 +38,14 @@ async fn health() -> impl Responder {
 #[get("/item/{name}")]
 /// Item accepts a string for item
 async fn item(path: web::Path<String>) -> impl Responder {
-    println!("INFO: Endpoint: /item");
+    println!("INFO: Endpoint: /item/name");
     HttpResponse::Ok().body(format!("Item: {}", path.into_inner()))
 }
 
 #[get("/itemid/{id}")]
 /// ItemId accepts a u32
 async fn itemid(path: web::Path<u32>) -> impl Responder {
-    println!("INFO: Endpoint: /itemid");
+    println!("INFO: Endpoint: /itemid/id");
     HttpResponse::Ok().body(format!("ItemId: {}", path.into_inner()))
 }
 

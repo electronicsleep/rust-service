@@ -12,7 +12,7 @@ pub struct Events {
 }
 
 pub fn get_events(pool: &mysql::Pool) -> Vec<Events> {
-    println!("INFO: fn get_events");
+    println!("INFO: get_events");
     let mut conn: PooledConn = pool.get_conn().unwrap();
 
     let events = conn.query_map(
