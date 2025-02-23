@@ -13,11 +13,11 @@ pub fn add_event(
         "INFO: add_event: {} {} {} {}",
         service, event, event_type, datetime
     );
-    println!("INFO: add_event endpoint get conn");
+    println!("INFO: add_event: endpoint get conn");
     let mut conn: PooledConn = pool.get_conn().unwrap();
 
     if datetime == "" {
-        println!("INFO: generate datetime now");
+        println!("INFO: add_event: generate datetime now");
         let now = chrono::Utc::now();
         datetime = now.format("%Y-%m-%d %H:%M:%S").to_string();
     }
