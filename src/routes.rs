@@ -1,4 +1,4 @@
-use actix_web::{get, post, web, HttpResponse, Responder};
+use actix_web::{HttpResponse, Responder, get, post, web};
 use serde::Deserialize;
 
 use crate::{add_event::add_event, get_events::get_events};

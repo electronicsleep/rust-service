@@ -1,8 +1,8 @@
 [package]
 name = "rust_service"
-version = "0.1.7"
+version = "0.1.8"
 authors = ["github.com/electronicsleep"]
-edition = "2021"
+edition = "2024"
 
 [dependencies]
 actix = "0.13.5"
