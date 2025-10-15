@@ -6,20 +6,15 @@ https://actix.rs/
 
 https://crates.io/crates/actix-web
 
-#### Cargo build and run
-```
-bash run.sh
-```
-
 #### Run Database
 ```
 git clone https://github.com/electronicsleep/mysql-docker-test.git && \
 cd mysql-docker-test && ./run.sh
 ```
 
-#### MySQL connection string
+#### Cargo build and run
 ```
-export datasource_conn_string=mysql://infradb:password@localhost:3306/infradb
+bash run.sh
 ```
 
 #### Tests
