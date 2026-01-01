@@ -4,15 +4,13 @@ use mysql::*;
 
 pub fn add_event(
     pool: &mysql::Pool,
+    api_key: String,
     service: String,
     event: String,
     event_type: String,
     mut datetime: String,
 ) -> String {
-    println!(
-        "INFO: add_event: {} {} {} {}",
-        service, event, event_type, datetime
-    );
+    println!("INFO: add_event: {api_key} {service} {event} {event_type} {datetime}");
     println!("INFO: add_event: endpoint get conn");
     let mut conn: PooledConn = pool.get_conn().unwrap();
 
