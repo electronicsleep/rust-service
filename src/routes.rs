@@ -85,11 +85,11 @@ async fn svc_add_event(data: web::Data<mysql::Pool>, event: web::Json<Event>) ->
     let mut found_valid_api_key = false;
     for valid_api_key in &valid_api_keys {
         if api_key == *valid_api_key {
-            println!("INFO: valid api_key: {api_key} valid_api_key: {valid_api_key}");
+            println!("INFO: valid api_key");
             found_valid_api_key = true;
             break;
         } else {
-            println!("INFO: invalid api_key: {api_key} valid_api_key: {valid_api_key}");
+            println!("INFO: invalid api_key");
         }
     }
 
