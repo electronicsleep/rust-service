@@ -80,8 +80,6 @@ struct Event {
 async fn svc_add_event(data: web::Data<mysql::Pool>, event: web::Json<Event>) -> impl Responder {
     println!("INFO: endpoint: /add");
     let api_key = event.api_key.to_string();
-    // set valid_api_key
-    //let valid_api_key = "test-12345";
     let valid_api_keys = vec!["test123", "test"];
     println!("INFO: endpoint: /add api_key: {api_key}");
     let mut found_valid_api_key = false;
