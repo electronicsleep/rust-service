@@ -1,6 +1,6 @@
 # Rust Service
 
-Example microservice in Rust and Actix V4
+Example microservice in Rust and Actix
 
 https://actix.rs/
 

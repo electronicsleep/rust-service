@@ -5,8 +5,8 @@ use serde::Serialize;
 #[derive(Serialize, Debug, PartialEq, Eq)]
 pub struct Events {
     event_id: Option<String>,
-    service: Option<String>,
     event: Option<String>,
+    service: Option<String>,
     event_type: Option<String>,
     datetime: Option<String>,
 }
