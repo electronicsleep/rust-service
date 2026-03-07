@@ -1,4 +1,4 @@
-Ensure you are using cargo 1.55.0
+Ensure you are using at least cargo 1.55.0
 
 ```
 cargo --version

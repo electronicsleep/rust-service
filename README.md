@@ -2,6 +2,8 @@
 
 Example service in Rust and Actix-Web
 
+Uses a connection pool to Mysql
+
 https://actix.rs/
 
 https://crates.io/crates/actix-web
